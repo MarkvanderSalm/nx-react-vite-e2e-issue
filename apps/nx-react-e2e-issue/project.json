@@ -1,0 +1,72 @@
+{
+  "name": "nx-react-e2e-issue",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nx-react-e2e-issue/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/nx-react-e2e-issue"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nx-react-e2e-issue:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nx-react-e2e-issue:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "nx-react-e2e-issue:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nrwl/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nx-react-e2e-issue:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nx-react-e2e-issue:build:development"
+        },
+        "production": {
+          "buildTarget": "nx-react-e2e-issue:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/nx-react-e2e-issue"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/nx-react-e2e-issue"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nx-react-e2e-issue/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
