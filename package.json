@@ -2,7 +2,9 @@
   "name": "nx-react-e2e-issue",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "e2e": "cypress open --project apps/nx-react-e2e-issue-e2e"
+  },
   "private": true,
   "devDependencies": {
     "@emotion/babel-plugin": "11.10.5",
